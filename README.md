@@ -1,27 +1,25 @@
 # package_name
 
 Description. 
-The package package_name is used to:
-	- 
-	-
+The package leticialair is used to get and put different file types into Amazon's S3.
 
 ## Installation
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install package_name
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install leticialair
 
 ```bash
-pip install package_name
+pip install leticialair
 ```
 
 ## Usage
 
 ```python
-from package_name import file1_name
-file1_name.my_function()
+from leticialair import s3_files
+s3_files.CSV()
 ```
 
 ## Author
-My_name
+Letícia Lair
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
