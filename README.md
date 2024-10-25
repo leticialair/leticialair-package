@@ -1,6 +1,5 @@
-# package_name
+# leticialair
 
-Description. 
 The package leticialair is used to get and put different file types into Amazon's S3.
 
 ## Installation
