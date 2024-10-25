@@ -1,4 +1,3 @@
-import camelot
 import io
 import os
 import pandas as pd
@@ -165,25 +164,3 @@ class XLS(Object):
         object_xls = self._get_text(bucket_origin, key)
         df_xls = pd.read_excel(object_xls.get("Body"), engine="xlrd")[0]
         return df_xls
-
-
-class PDF(Object):
-    def __init__(self):
-        super().__init__()
-
-    def get(
-        self, bucket_origin: str, key: str, flavor: str = "stream", **kwargs
-    ) -> dict[DataFrame]:
-        path = "./target.pdf"
-        s3 = self.auth_aws.resource("s3")
-        s3.meta.client.download_file(bucket_origin, key, path)
-
-        tables = camelot.read_pdf(path, flavor=flavor, pages="all", **kwargs)
-        os.remove(path)
-
-        n_tables = len(tables)
-        dict_df = {}
-        for i in range(n_tables):
-            dict_df[i] = tables[i].df
-
-        return dict_df
